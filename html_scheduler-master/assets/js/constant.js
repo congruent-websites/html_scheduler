@@ -82,8 +82,8 @@ var selectedTimesLength = 0
 cDate = cDate - 1
 
 createStateSelect()
-// createServiceSelect()
-// createCustomerSelect()
+createServiceSelect()
+createCustomerSelect()
 
 for (var i = 0; i < 5; i++) {
     if (cDate < wDates) {
@@ -505,6 +505,48 @@ function handleRequest() {
     ).value
 
     var invalidFields = document.getElementsByClassName("invalid")
+
+    // This is the thing to check!!
+// console.log(document.querySelector("#SchedulerLocalContactForm_ITM0_EmailAddress").parentNode.parentNode)
+
+    if(sch_firstName === "") {
+      document.querySelector("#SchedulerLocalContactForm_ITM0_FirstName").parentNode.parentNode.classList.add("invalid")
+    }
+    if(sch_lastName === "") {
+      document.querySelector("#SchedulerLocalContactForm_ITM0_LastName").parentNode.parentNode.classList.add("invalid")
+  
+    }
+    if(sch_email === "") {
+      document.querySelector("#SchedulerLocalContactForm_ITM0_EmailAddress").parentNode.parentNode.classList.add("invalid")
+     
+    }
+    if(sch_phone === "") {
+      document.querySelector("#SchedulerLocalContactForm_ITM0_Phone").parentNode.parentNode.classList.add("invalid")
+    }
+    if(sch_address === "") {
+      document.querySelector("#SchedulerLocalContactForm_ITM0_Address").parentNode.parentNode.classList.add("invalid")
+    }
+    if(sch_city === "") {
+      document.querySelector("#SchedulerLocalContactForm_ITM0_City").parentNode.parentNode.classList.add("invalid")
+    }
+  if(sch_state === "") {
+      document.querySelector("#SchedulerLocalContactForm_ITM0_State").parentNode.parentNode.classList.add("invalid")
+    }
+    if(sch_zipCode === "") {
+      document.querySelector("#SchedulerLocalContactForm_ITM0_ZipCode").parentNode.parentNode.classList.add("invalid")
+    }
+    if(sch_serviceType === "") {
+      document.querySelector("#SchedulerLocalContactForm_ITM0_ServiceType").parentNode.parentNode.classList.add("invalid")
+    }
+    if(sch_leadTypeID === "") {
+      document.querySelector("#SchedulerLocalContactForm_ITM0_LeadTypeID").parentNode.parentNode.classList.add("invalid")
+    }
+  if(sch_message === "") {
+      document.querySelector("#SchedulerLocalContactForm_ITM0_Message").parentNode.parentNode.classList.add("invalid")
+    }
+  
+    
+  
     if (invalidFields.length > 0) {
         Toastify({
             text: "Please correct in all fields.",
@@ -547,23 +589,6 @@ function handleRequest() {
         return
     }
 
-//     // const emailTo = "emily@congruentstory.com"
-//     // const emailCC = "emily@congruentstory.com"
-//     const emailTo = "info@superiordrains.com"
-//     const emailCC = "info@superiordrains.com"
-//     const emailSub = "Schedule"
-//     const emailBody = `${time} \n FirstName: ${sch_firstName} \n LasttName: ${sch_lastName} \n Email: ${sch_email} \n Phone: ${sch_phone} \n Address: ${sch_address} \n City: ${sch_city} \n State: ${sch_state} \n ZipCode: ${sch_zipCode} \n ServiceType: ${sch_serviceType} \n LeadType: ${sch_leadTypeID} \n Message: ${sch_message}`
-
-//     window.open(
-//         "mailto:" +
-//             emailTo +
-//             "?cc=" +
-//             emailCC +
-//             "&subject=" +
-//             emailSub +
-//             "&body=" +
-//             encodeURIComponent(emailBody)
-//     )
 }
 function validateEmail(event) {
     var email = event.target.value
@@ -611,4 +636,3 @@ document
             ? x[1]
             : "(" + x[1] + ") " + x[2] + (x[3] ? "-" + x[3] : "")
     })
-
